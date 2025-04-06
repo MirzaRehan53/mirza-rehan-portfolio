@@ -347,7 +347,8 @@ function ProjectCard({ project }: { project: Project }) {
         <div className="absolute bottom-8 right-8">
           <a
             href={project.demo}
-            target="_blank"
+            target={`${project.demo.includes("#") ? "_self" : "_blank"}`}
+            // target=""
             rel="noopener noreferrer"
             className="inline-flex items-center px-4 py-2 bg-emerald-500 text-white rounded-lg shadow-lg hover:bg-emerald-600 transition-all duration-300"
           >
