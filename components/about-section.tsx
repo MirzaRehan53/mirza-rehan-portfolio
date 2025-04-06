@@ -80,6 +80,22 @@ export default function AboutSection() {
     return () => ctx.revert();
   }, []);
 
+  const downloadResume = () => {
+    // Path to the PDF file in your public folder
+    const pdfPath = "/resume/Rehan-Waseem-Resume.pdf";
+
+    // Create a temporary anchor element
+    const link = document.createElement("a");
+    link.href = pdfPath;
+    link.download = "Rehan-Waseem-Resume.pdf"; // Name that will appear when downloading
+    link.target = "_blank";
+
+    // Append to body, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -212,12 +228,7 @@ export default function AboutSection() {
               <div className="flex flex-wrap gap-4">
                 <Button
                   className="bg-gradient-to-r from-emerald-600  hover:from-emerald-700 text-white px-6 py-6 text-base font-medium rounded-lg shadow-lg  transition duration-300 flex items-center"
-                  onClick={() =>
-                    window.open(
-                      "https://docs.google.com/document/d/18c9mDgbEFUz7zfsWGFB4eYmccLjgJu8M/edit?usp=drive_link&ouid=104481328127845785810&rtpof=true&sd=true",
-                      "_blank"
-                    )
-                  }
+                  onClick={downloadResume}
                 >
                   <FileText className="mr-2 h-5 w-5" />
                   Download Resume

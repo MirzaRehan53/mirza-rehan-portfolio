@@ -90,6 +90,21 @@ export default function Navbar() {
     });
   };
 
+  const downloadResume = () => {
+    // Path to the PDF file in your public folder
+    const pdfPath = "/resume/Rehan-Waseem-Resume.pdf";
+
+    // Create a temporary anchor element
+    const link = document.createElement("a");
+    link.href = pdfPath;
+    link.download = "Rehan-Waseem-Resume.pdf"; // Name that will appear when downloading
+    link.target = "_blank";
+
+    // Append to body, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <header
       className={`fixed w-full self-center z-50 transition-all duration-300 ${
@@ -113,12 +128,7 @@ export default function Navbar() {
           ))}
           <Button
             className="bg-emerald-500 hover:bg-emerald-600 text-white"
-            onClick={() =>
-              window.open(
-                "https://docs.google.com/document/d/18c9mDgbEFUz7zfsWGFB4eYmccLjgJu8M/edit?usp=drive_link&ouid=104481328127845785810&rtpof=true&sd=true",
-                "_blank"
-              )
-            }
+            onClick={downloadResume}
           >
             Resume
           </Button>
@@ -152,12 +162,7 @@ export default function Navbar() {
             ))}
             <Button
               className="bg-emerald-500 hover:bg-emerald-600 text-white mt-4"
-              onClick={() =>
-                window.open(
-                  "https://docs.google.com/document/d/18c9mDgbEFUz7zfsWGFB4eYmccLjgJu8M/edit?usp=drive_link&ouid=104481328127845785810&rtpof=true&sd=true",
-                  "_blank"
-                )
-              }
+              onClick={downloadResume}
             >
               Resume
             </Button>
