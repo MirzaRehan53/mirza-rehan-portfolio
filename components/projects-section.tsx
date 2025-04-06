@@ -58,7 +58,7 @@ const projects: Project[] = [
       { url: "/zoaverse-3.png", alt: "zoaverse-3" },
     ],
     technologies: ["Next.js", "GSAP", "Tailwind CSS"],
-    demo: "https://example.com",
+    demo: "#",
   },
   {
     title: "FID World | Unified Web Platform ",
