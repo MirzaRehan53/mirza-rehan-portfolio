@@ -164,7 +164,7 @@ export default function ProjectsSection() {
     <section
       ref={sectionRef}
       id="projects"
-      className="bg-zinc-900/50 relative overflow-hidden px-10 min-h-screen"
+      className="bg-zinc-900/50 relative overflow-hidden px-3 md:px-10 min-h-screen"
     >
       <div>
         <div ref={headingRef} className="text-center mb-16 pt-16">
@@ -178,7 +178,7 @@ export default function ProjectsSection() {
 
         <div
           ref={galleryRef}
-          className="flex space-x-8 h-[80dvh] overflow-x-hidden w-full"
+          className="flex space-x-8 h-full md:h-[80dvh] overflow-x-hidden w-full"
         >
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} />
@@ -233,7 +233,7 @@ function ProjectCard({ project }: { project: Project }) {
   };
 
   return (
-    <div className="project-card relative w-[90vw] md:w-[60vw] h-[50vh] md:h-[60dvh] flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 ease-out group">
+    <div className="project-card relative w-[90vw] md:w-[60vw] h-[40dvh] md:h-[60dvh] flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 ease-out group">
       <div className="relative w-[100%] h-full">
         {project.screenshots.map((screenshot, imgIndex) => (
           <div
@@ -315,12 +315,15 @@ function ProjectCard({ project }: { project: Project }) {
         )}
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent flex flex-col justify-between p-8">
-        <div ref={infoRef} className="project-info">
-          <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 drop-shadow-lg">
+      <div className="absolute inset-0  bg-gradient-to-t from-black/80 via-black/50 to-transparent flex flex-col justify-between p-8">
+        <div
+          ref={infoRef}
+          className="project-info max-sm:bottom-2 max-sm:absolute"
+        >
+          <h3 className="md:text-3xl sm:text-xl text-lg lg:text-4xl font-bold text-white mb-2 drop-shadow-lg">
             {project.title}
           </h3>
-          <p className="text-zinc-200 text-sm md:text-base drop-shadow-md line-clamp-2">
+          <p className="text-zinc-200 text-xs md:text-sm lg:text-base drop-shadow-md line-clamp-2">
             {project.description}
           </p>
 
@@ -333,24 +336,24 @@ function ProjectCard({ project }: { project: Project }) {
           )}
         </div>
 
-        <div className="flex flex-wrap relative top-5 w-[80%] gap-2">
+        <div className="flex flex-wrap relative top-5 w-full max-md:hidden md:w-[80%] gap-2">
           {project.technologies.map((tech, techIndex) => (
             <span
               key={techIndex}
-              className="px-3 py-1 bg-emerald-500/20 text-emerald-300 text-xs md:text-sm rounded-full border border-emerald-500/30 shadow-md transform transition-all duration-300 group-hover:-translate-y-1"
+              className="md:px-3 px-1.5 max-sm:truncate py-1 bg-emerald-500/20 text-emerald-300 text-xs md:text-sm rounded-full border border-emerald-500/30 shadow-md transform transition-all duration-300 group-hover:-translate-y-1"
             >
               {tech}
             </span>
           ))}
         </div>
 
-        <div className="absolute bottom-8 right-8">
+        <div className="absolute  top-6 sm:bottom-8 right-8">
           <a
             href={project.demo}
             target={`${project.demo.includes("#") ? "_self" : "_blank"}`}
             // target=""
             rel="noopener noreferrer"
-            className="inline-flex items-center px-4 py-2 bg-emerald-500 text-white rounded-lg shadow-lg hover:bg-emerald-600 transition-all duration-300"
+            className="inline-flex items-center px-2 md:px-4 py-1 md:py-2 bg-emerald-500 text-white rounded-lg shadow-lg hover:bg-emerald-600 transition-all duration-300"
           >
             <span className="mr-2">Live Demo</span>
             <svg

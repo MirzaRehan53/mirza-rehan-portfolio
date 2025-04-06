@@ -130,8 +130,8 @@ export default function TimelineSection() {
             <span className="mr-2 md:mr-3">03.</span> Professional Timeline
           </h2>
           <p className="text-zinc-300 max-w-2xl mx-auto text-base md:text-lg">
-            A journey through my tenure at Enigmatix, showcasing my growth and
-            contributions over time.
+            A journey through my tenure, showcasing my growth and contributions
+            over time.
           </p>
         </div>
 

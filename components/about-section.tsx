@@ -147,9 +147,9 @@ export default function AboutSection() {
                   Software Developer
                 </h4>
                 <p className="text-lg text-slate-300 leading-relaxed">
-                  I'm a passionate Software Developer at Enigmatix with three
-                  years of experience crafting exceptional digital experiences.
-                  My expertise lies in building modern, responsive, and
+                  I'm a passionate Software Developer with three years of
+                  experience crafting exceptional digital experiences. My
+                  expertise lies in building modern, responsive, and
                   performance-optimized web applications that solve complex
                   business challenges.
                 </p>

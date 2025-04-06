@@ -22,6 +22,41 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Add effect to control body scroll and backdrop when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      // Prevent scrolling on the body when menu is open
+      document.body.style.overflow = "hidden";
+
+      // Create and append backdrop overlay
+      const backdrop = document.createElement("div");
+      backdrop.className = "fixed inset-0 bg-zinc-900 backdrop-blur-lg z-40";
+      backdrop.id = "mobile-menu-backdrop";
+      document.body.appendChild(backdrop);
+
+      // Close menu when backdrop is clicked
+      backdrop.addEventListener("click", () => {
+        toggleMenu();
+      });
+    } else {
+      // Re-enable scrolling when menu is closed
+      document.body.style.overflow = "";
+
+      // Remove backdrop
+      const backdrop = document.getElementById("mobile-menu-backdrop");
+      if (backdrop) {
+        backdrop.remove();
+      }
+    }
+
+    // Cleanup function
+    return () => {
+      document.body.style.overflow = "";
+      const backdrop = document.getElementById("mobile-menu-backdrop");
+      if (backdrop) backdrop.remove();
+    };
+  }, [isOpen]);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
 
@@ -40,7 +75,7 @@ export default function Navbar() {
     }
   };
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (id) => {
     setIsOpen(false);
     gsap.to(".mobile-menu", {
       x: "100%",
@@ -57,10 +92,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed w-full self-center z-50  transition-all duration-300 ${
-        scrolled
-          ? "bg-zinc-900/90 backdrop-blur-md py-3 shadow-lg"
-          : "bg-transparent py-5"
+      className={`fixed w-full self-center z-50 transition-all duration-300 ${
+        scrolled ? "bg-zinc-900 py-3 shadow-lg" : "bg-zinc-900 py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
@@ -100,14 +133,14 @@ export default function Navbar() {
         </button>
       </div>
 
-      <div className="mobile-menu fixed top-0 right-0 h-full w-4/5 bg-zinc-800 transform translate-x-full transition-transform z-50 md:hidden">
-        <div className="flex flex-col p-8 h-full">
-          <div className="flex justify-end mb-8">
+      <div className="mobile-menu fixed top-0 right-0 h-full w-4/5 bg-zinc-800 transform translate-x-full z-50 md:hidden shadow-xl">
+        <div className="flex flex-col h-full bg-zinc-800 p-6">
+          <div className="flex justify-end">
             <button onClick={toggleMenu} aria-label="Close menu">
               <X size={24} className="text-zinc-100" />
             </button>
           </div>
-          <nav className="flex flex-col space-y-6">
+          <nav className="flex flex-col space-y-6 mt-8">
             {["home", "about", "skills", "projects", "contact"].map((item) => (
               <button
                 key={item}
@@ -131,7 +164,7 @@ export default function Navbar() {
           </nav>
           <div className="mt-auto">
             <p className="text-zinc-400 text-sm">
-              &copy; {new Date().getFullYear()} Rehan Waseem
+              © {new Date().getFullYear()} Rehan Waseem
             </p>
           </div>
         </div>
