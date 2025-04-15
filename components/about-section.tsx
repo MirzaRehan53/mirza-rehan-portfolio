@@ -32,7 +32,6 @@ export default function AboutSection() {
         },
       });
 
-      // Content blocks staggered animation
       gsap.from(contentRef.current?.children, {
         y: 60,
         opacity: 0,
@@ -47,7 +46,6 @@ export default function AboutSection() {
         },
       });
 
-      // Experience card animation
       gsap.from(experienceCardRef.current, {
         scale: 0.95,
         opacity: 0,
@@ -61,7 +59,6 @@ export default function AboutSection() {
         },
       });
 
-      // Highlights animation
       gsap.from(highlightsRef.current?.children, {
         x: -30,
         opacity: 0,
@@ -81,16 +78,13 @@ export default function AboutSection() {
   }, []);
 
   const downloadResume = () => {
-    // Path to the PDF file in your public folder
     const pdfPath = "/resume/Rehan-Waseem-Resume.pdf";
 
-    // Create a temporary anchor element
     const link = document.createElement("a");
     link.href = pdfPath;
-    link.download = "Rehan-Waseem-Resume.pdf"; // Name that will appear when downloading
+    link.download = "Rehan-Waseem-Resume.pdf";
     link.target = "_blank";
 
-    // Append to body, click, and remove
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

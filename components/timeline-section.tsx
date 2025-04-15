@@ -49,10 +49,8 @@ export default function TimelineSection() {
 
   useEffect(() => {
     setIsClient(true);
-    // Check if mobile on initial render
     setIsMobile(window.innerWidth < 768);
 
-    // Add resize listener
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };

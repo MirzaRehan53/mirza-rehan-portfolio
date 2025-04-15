@@ -46,7 +46,7 @@ const projects: Project[] = [
       "React-Hook-Form",
       "React i18next",
     ],
-    demo: "#",
+    demo: "https://woovclub.com",
   },
   {
     title: "Zoaverse | Design",
@@ -57,8 +57,8 @@ const projects: Project[] = [
       { url: "/zoaverse-2.png", alt: "zoaverse-2" },
       { url: "/zoaverse-3.png", alt: "zoaverse-3" },
     ],
-    technologies: ["Next.js", "GSAP", "Tailwind CSS"],
-    demo: "#",
+    technologies: ["Next.js", "GSAP", "Tailwind CSS,React i18n"],
+    demo: "https://zoaverse.com",
   },
   {
     title: "FID World | Unified Web Platform ",
