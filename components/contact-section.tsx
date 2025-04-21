@@ -160,7 +160,7 @@ export default function ContactSection() {
                   </svg>
                 </a>
                 <a
-                  href="www.linkedin.com/in/rehan-mirza-7806a626a"
+                  href="https://www.linkedin.com/in/rehan-mirza-7806a626a/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-zinc-800 hover:bg-emerald-500/20 p-3 rounded-full text-zinc-300 hover:text-emerald-400 transition-all"
