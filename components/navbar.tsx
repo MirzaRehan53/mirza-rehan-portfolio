@@ -23,39 +23,39 @@ export default function Navbar() {
   }, []);
 
   // Add effect to control body scroll and backdrop when menu is open
-  useEffect(() => {
-    if (isOpen) {
-      // Prevent scrolling on the body when menu is open
-      document.body.style.overflow = "hidden";
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     // Prevent scrolling on the body when menu is open
+  //     document.body.style.overflow = "hidden";
 
-      // Create and append backdrop overlay
-      const backdrop = document.createElement("div");
-      backdrop.className = "fixed inset-0 bg-zinc-900 backdrop-blur-lg z-40";
-      backdrop.id = "mobile-menu-backdrop";
-      document.body.appendChild(backdrop);
+  //     // Create and append backdrop overlay
+  //     const backdrop = document.createElement("div");
+  //     backdrop.className = "fixed inset-0 bg-zinc-900 backdrop-blur-lg z-40";
+  //     backdrop.id = "mobile-menu-backdrop";
+  //     document.body.appendChild(backdrop);
 
-      // Close menu when backdrop is clicked
-      backdrop.addEventListener("click", () => {
-        toggleMenu();
-      });
-    } else {
-      // Re-enable scrolling when menu is closed
-      document.body.style.overflow = "";
+  //     // Close menu when backdrop is clicked
+  //     backdrop.addEventListener("click", () => {
+  //       toggleMenu();
+  //     });
+  //   } else {
+  //     // Re-enable scrolling when menu is closed
+  //     document.body.style.overflow = "";
 
-      // Remove backdrop
-      const backdrop = document.getElementById("mobile-menu-backdrop");
-      if (backdrop) {
-        backdrop.remove();
-      }
-    }
+  //     // Remove backdrop
+  //     const backdrop = document.getElementById("mobile-menu-backdrop");
+  //     if (backdrop) {
+  //       backdrop.remove();
+  //     }
+  //   }
 
-    // Cleanup function
-    return () => {
-      document.body.style.overflow = "";
-      const backdrop = document.getElementById("mobile-menu-backdrop");
-      if (backdrop) backdrop.remove();
-    };
-  }, [isOpen]);
+  //   // Cleanup function
+  //   return () => {
+  //     document.body.style.overflow = "";
+  //     const backdrop = document.getElementById("mobile-menu-backdrop");
+  //     if (backdrop) backdrop.remove();
+  //   };
+  // }, [isOpen]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);

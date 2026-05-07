@@ -127,7 +127,6 @@ export default function ProjectsSection() {
       });
 
       const cards = gsap.utils.toArray(".project-card");
-      // Modified scroll animation to ensure full gallery scroll
       gsap.to(cards, {
         xPercent: -100 * projects.length,
         ease: "none",
